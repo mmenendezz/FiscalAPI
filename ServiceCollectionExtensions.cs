@@ -31,9 +31,22 @@ namespace FiscalApi
                 var settings = sp.GetRequiredService<IOptions<FiscalapiSettings>>().Value;
                 return FiscalApiClient.Create(settings);
             });
-
+        /// Testing 21.09
+        public User GetUser(string username)
+{
+    var query = "SELECT * FROM Users WHERE username = '" + username2 + "'";
+    return db.ExecuteQuery(query);
+}
             return services;
         }
+        public class Config
+{
+    public string ConnectionString = "Server=prod-db;User=admin;Password=SuperSecreta123!";
+    public string ApiKey = "sk-live-abc123def456ghi789";
+    public string AwsSecret = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY";
+    public string JwtSecret = "myjwtsecretkey";
+}
+/// Fin Test
 
 
         /// <summary>
