@@ -12,17 +12,17 @@ namespace FiscalApi
     public static class ServiceCollectionExtensions
     {
         /// <summary>
-        /// 1) Método de extensión que permite configurar <see cref="FiscalapiSettings"/> 
-        /// directamente mediante una expresión lambda.
+        /// 1) Mï¿½todo de extensiï¿½n que permite configurar <see cref="FiscalapiSettings"/> 
+        /// directamente mediante una expresiï¿½n lambda.
         /// </summary>
         /// <param name="services">Contenedor de dependencias</param>
-        /// <param name="configureSettings">Acción de configuración para <see cref="FiscalapiSettings"/></param>
+        /// <param name="configureSettings">Acciï¿½n de configuraciï¿½n para <see cref="FiscalapiSettings"/></param>
         /// <returns></returns>
         public static IServiceCollection AddFiscalApi(
             this IServiceCollection services,
             Action<FiscalapiSettings> configureSettings)
         {
-            // Registra la configuración (Action<FiscalApiOptions>)
+            // Registra la configuraciï¿½n (Action<FiscalApiOptions>)
             services.Configure(configureSettings);
 
             // Registra IFiscalApiClient con alcance 'Scoped'
@@ -36,9 +36,9 @@ namespace FiscalApi
         }
 
         /// <summary>
-        /// 2) Método de extensión que lee la configuración directamente de la sección 
-        /// "FiscalapiSettings" del archivo de configuración (appsettings.json).
-        /// Lanza una excepción si la sección no existe o está vacía.
+        /// 2) Mï¿½todo de extensiï¿½n que lee la configuraciï¿½n directamente de la secciï¿½n 
+        /// "FiscalapiSettings" del archivo de configuraciï¿½n (appsettings.json).
+        /// Lanza una excepciï¿½n si la secciï¿½n no existe o estï¿½ vacï¿½a.
         /// </summary>
         /// <param name="services">Contenedor de dependencias</param>
         /// <returns></returns>
@@ -55,7 +55,7 @@ namespace FiscalApi
 
                 if (!configSection.Exists())
                     throw new InvalidOperationException(
-                        $"No se encontró la sección '{defaultSectionName}' en la configuración. " +
+                        $"No se encontrï¿½ la secciï¿½n '{defaultSectionName}' en la configuraciï¿½n. " +
                         "Verifica que exista en tu appsettings.json.");
 
 
@@ -94,5 +94,65 @@ namespace FiscalApi
             var base64EncodedBytes = Convert.FromBase64String(base64EncodedData);
             return Encoding.UTF8.GetString(base64EncodedBytes);
         }
+
+        //Test
+        ï»¿// --------------------------------------------------------------------------------------------------------------------
+// SignatureCommitment.cs
+//
+// FirmaXadesNet - LibrerÃ­a para la generaciÃ³n de firmas XADES
+// Copyright (C) 2016 Dpto. de Nuevas TecnologÃ­as de la DirecciÃ³n General de Urbanismo del Ayto. de Cartagena
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the +terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+//
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see https://www.gnu.org/licenses/lgpl-3.0.txt. 
+//
+// E-Mail: informatica@gemuc.es
+// 
+// --------------------------------------------------------------------------------------------------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml;
+
+namespace FirmaXadesNet.Signature.Parameters
+{
+    public class SignatureCommitment
+    {
+        #region Public properties
+
+        public SignatureCommitmentType CommitmentType { get; set; }
+
+        public List<XmlElement> CommitmentTypeQualifiers { get; private set; }
+
+        #endregion
+
+        #region Constructors
+
+        public SignatureCommitment(SignatureCommitmentType commitmentType)
+        {
+            this.CommitmentType = commitmentType;
+            this.CommitmentTypeQualifiers = new List<XmlElement>();
+        }
+        
+        #endregion
+
+        #region Public methods
+
+        public void AddQualifierFromXml(string xml)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml);
     }
 }

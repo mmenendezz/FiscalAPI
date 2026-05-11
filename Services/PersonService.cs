@@ -11,11 +11,14 @@ namespace Fiscalapi.Services
 {
     public class PersonService : BaseFiscalApiService<Person>, IPersonService
     {
-        public EmployeerService  Employeer { get;}
+        public IEmployerService Employer { get; }
+        public IEmployeeService Employee { get; }
+
         public PersonService(IFiscalApiHttpClient httpClient, string apiVersion)
             : base(httpClient, "people", apiVersion)
         {
-            Employeer = new EmployeerService(httpClient);
+            Employer = new EmployerService(httpClient, apiVersion);
+            Employee = new EmployeeService(httpClient, apiVersion);
         }
 
         // GET /api/v4/people/{personId}/employer
