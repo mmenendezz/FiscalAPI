@@ -7,7 +7,5 @@ namespace Fiscalapi.Abstractions
     /// </summary>
     public interface IPersonService : IFiscalApiService<Person>
     {
-        IEmployerService Employer { get; }
-        IEmployeeService Employee { get; }
-    }
+
 }

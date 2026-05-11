@@ -12,7 +12,7 @@ namespace FiscalApi
     public static class ServiceCollectionExtensions
     {
         /// <summary>
-        /// 1) M�todo de extensi�n que permite configurar <see cref="FiscalapiSettings"/> 
+        /// 1) M�toddfddo de extensi�n que permite configurar <see cref="FiscalapiSettings"/> 
         /// directamente mediante una expresi�n lambda.
         /// </summary>
         /// <param name="services">Contenedor de dependencias</param>
@@ -32,8 +32,7 @@ namespace FiscalApi
                 return FiscalApiClient.Create(settings);
             });
 
-            return services;
-        }
+
 
         /// <summary>
         /// 2) M�todo de extensi�n que lee la configuraci�n directamente de la secci�n 
@@ -94,5 +93,16 @@ namespace FiscalApi
             var base64EncodedBytes = Convert.FromBase64String(base64EncodedData);
             return Encoding.UTF8.GetString(base64EncodedBytes);
         }
+
+
+=======
+        #region Public methods
+
+        public void AddQualifierFromXml(string xml)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml);
     }
 }
+
+>>>>>>> 54b2c005199d5e32685c7f4ba8a616945a138027
