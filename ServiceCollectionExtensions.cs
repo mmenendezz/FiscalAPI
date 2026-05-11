@@ -12,7 +12,7 @@ namespace FiscalApi
     public static class ServiceCollectionExtensions
     {
         /// <summary>
-        /// 1) M�todo de extensi�n que permite configurar <see cref="FiscalapiSettings"/> 
+        /// 1) M�toddfddo de extensi�n que permite configurar <see cref="FiscalapiSettings"/> 
         /// directamente mediante una expresi�n lambda.
         /// </summary>
         /// <param name="services">Contenedor de dependencias</param>
@@ -31,22 +31,7 @@ namespace FiscalApi
                 var settings = sp.GetRequiredService<IOptions<FiscalapiSettings>>().Value;
                 return FiscalApiClient.Create(settings);
             });
-        /// Testing 21.09
-        public User GetUser(string username)
-{
-    var query = "SELECT * FROM Users1 WHERE username = '" + username2 + "'";
-    return db.ExecuteQuery(query);
-}
-            return services;
-        }
-        public class Config
-{
-    public string ConnectionString = "Server=prod-db;User=admin;Password=SuperSecreta123!";
-    public string ApiKey = "sk-live-abc123def456ghi789";
-    public string AwsSecret = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY";
-    public string JwtSecret = "myjwtsecretkey";
-}
-/// Fin Test
+
 
 
         /// <summary>
