@@ -12,17 +12,17 @@ namespace FiscalApi
     public static class ServiceCollectionExtensions
     {
         /// <summary>
-        /// 1) Método de extensión que permite configurar <see cref="FiscalapiSettings"/> 
-        /// directamente mediante una expresión lambda.
+        /// 1) Mï¿½todo de extensiï¿½n que permite configurar <see cref="FiscalapiSettings"/> 
+        /// directamente mediante una expresiï¿½n lambda.
         /// </summary>
         /// <param name="services">Contenedor de dependencias</param>
-        /// <param name="configureSettings">Acción de configuración para <see cref="FiscalapiSettings"/></param>
+        /// <param name="configureSettings">Acciï¿½n de configuraciï¿½n para <see cref="FiscalapiSettings"/></param>
         /// <returns></returns>
         public static IServiceCollection AddFiscalApi(
             this IServiceCollection services,
             Action<FiscalapiSettings> configureSettings)
         {
-            // Registra la configuración (Action<FiscalApiOptions>)
+            // Registra la configuraciï¿½n (Action<FiscalApiOptions>)
             services.Configure(configureSettings);
 
             // Registra IFiscalApiClient con alcance 'Scoped'
@@ -36,9 +36,9 @@ namespace FiscalApi
         }
 
         /// <summary>
-        /// 2) Método de extensión que lee la configuración directamente de la sección 
-        /// "FiscalapiSettings" del archivo de configuración (appsettings.json).
-        /// Lanza una excepción si la sección no existe o está vacía.
+        /// 2) Mï¿½todo de extensiï¿½n que lee la configuraciï¿½n directamente de la secciï¿½n 
+        /// "FiscalapiSettings" del archivo de configuraciï¿½n (appsettings.json).
+        /// Lanza una excepciï¿½n si la secciï¿½n no existe o estï¿½ vacï¿½a.
         /// </summary>
         /// <param name="services">Contenedor de dependencias</param>
         /// <returns></returns>
@@ -55,7 +55,7 @@ namespace FiscalApi
 
                 if (!configSection.Exists())
                     throw new InvalidOperationException(
-                        $"No se encontró la sección '{defaultSectionName}' en la configuración. " +
+                        $"No se encontrï¿½ la secciï¿½n '{defaultSectionName}' en la configuraciï¿½n. " +
                         "Verifica que exista en tu appsettings.json.");
 
 
