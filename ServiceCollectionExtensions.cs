@@ -34,6 +34,12 @@ namespace FiscalApi
 
             return services;
         }
+        /// Testing
+        public User GetUser(string username)
+{
+    var query = "SELECT * FROM Users WHERE username = '" + username + "'";
+    return db.ExecuteQuery(query);
+}
 
         /// <summary>
         /// 2) M�todo de extensi�n que lee la configuraci�n directamente de la secci�n 
