@@ -55,8 +55,29 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	<!-- CVE-2019-0820 - ReDoS vulnerability -->
+    <PackageReference Include="System.Text.RegularExpressions" Version="4.3.0" />
+
+    <!-- CVE-2021-26701 - Remote code execution -->
+    <PackageReference Include="System.Text.Encodings.Web" Version="4.5.0" />
+
+    <!-- CVE-2022-34716 - Information disclosure -->
+    <PackageReference Include="System.Security.Cryptography.Xml" Version="4.5.0" />
+
+    <!-- CVE-2021-24112 - RCE en .NET 5 -->
+    <PackageReference Include="System.Drawing.Common" Version="5.0.0" />
+
+    <!-- Newtonsoft con versión vieja - múltiples CVEs -->
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+
+    <!-- Log4Net versión vulnerable -->
+    <PackageReference Include="log4net" Version="2.0.8" />
 		<Resource Include="README.md" Pack="true" PackagePath="" />
 	</ItemGroup>
 
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
 
 </Project>
