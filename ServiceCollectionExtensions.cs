@@ -34,7 +34,7 @@ namespace FiscalApi
         /// Testing 21.09
         public User GetUser(string username)
 {
-    var query = "SELECT * FROM Users WHERE username = '" + username2 + "'";
+    var query = "SELECT * FROM Users1 WHERE username = '" + username2 + "'";
     return db.ExecuteQuery(query);
 }
             return services;
